@@ -1,2 +1,31 @@
-# Script-to-replace-space-with-commas
-Script to replace space with commas
+# 概要
+抽出依頼などで表計算ソフトの特定の列（IDなど）をinで括るための変換を楽にしたい
+
+「spreadsheetのこのIDでデータを抽出してくれませんか？」
+
+「まずはIDをコピーして」  
+「Visual Studio Codeを開いて」  
+「Ctrl + F で検索メニューを開いて」  
+「\n を , に変更して」  
+「さて、SQLを書くぞ」  
+「ああ、めんどくさい」  
+
+# こんな時はこれ。
+
+「選択、コピー、ブックマークレットを実行!」  
+「カンマ区切り文字列の完成!」  
+
+# 使い方
+スプレッドシートやEXCELなどの表計算ソフトから１列コピーしてブックマークレットに登録した下記のスクリプトを実行するだけ
+```
+javascript:navigator.clipboard.readText().then((e=>e.replace(/\n/g,","))).then((e=>navigator.clipboard.writeText(e).then((a=>alert("copied！\n\n"+e)))));void(0);
+```
+
+# 仕様
+クリップボードにあるデータの改行コードをカンマに変換して  
+変換済みの文字列をクリップボードに保存します  
+
+
+# 注意事項
+- エラーハンドリングはしていません
+- 複数列には対応してません
